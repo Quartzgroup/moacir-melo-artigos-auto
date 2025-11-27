@@ -5,6 +5,7 @@ on:
     paths:
       - "word-artigos/**"
       - "scripts/**"
+      - ".github/workflows/build-site.yml"
 
 jobs:
   build:
@@ -12,28 +13,27 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Instalar Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: "3.10"
+        python-version: "3.11"
 
     - name: Instalar dependências
-      run: pip install mammoth
+      run: pip install python-docx
 
     - name: Executar script de geração
       run: python scripts/build_site.py
 
-    - name: Commit gerados
+    - name: Commit arquivos gerados
       run: |
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
         git add .
         git commit -m "Gerar artigos automaticamente" || echo "Nada para commitar"
 
-    - name: Push
+    - name: Push alterações
       uses: ad-m/github-push-action@v0.6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-
