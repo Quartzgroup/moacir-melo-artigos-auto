@@ -1,5 +1,5 @@
 name: Gerar site de artigos
-
+# Teste de disparo de workflow
 on:
   push:
     branches:
