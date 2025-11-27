@@ -1,46 +1,264 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>Artigos de Moacir Lázaro Melo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px 40px;
-      background: #f5f7fb;
-      color: #0f172a;
+    * {
+      box-sizing: border-box;
     }
-    h1 {
-      text-align: center;
-      color: #0c3c8c;
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #17427d 0, #020617 40%, #020617 100%);
+      color: #f9fafb;
+    }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 24px 16px 8px;
+    }
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tagline {
+      font-size: 0.75rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+      opacity: .85;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .title span.highlight {
+      color: #ffe26a;
+    }
+    .subtitle {
+      margin-top: 8px;
+      max-width: 520px;
+      color: #e5e7eb;
+      font-size: 0.95rem;
+    }
+    .bio-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(15,23,42,.85);
+      margin-top: 16px;
+    }
+    .bio-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 2px solid #ffe26a;
+      flex-shrink: 0;
+    }
+    .bio-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .bio-text-main {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+    .bio-text-sub {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+    .hero-badge {
+      font-size: 0.78rem;
+      color: #c7d2fe;
+      margin-top: 4px;
+    }
+    main {
+      flex: 1;
+      padding: 0 16px 32px;
+    }
+    .content {
+      max-width: 1080px;
+      margin: 0 auto;
+      background: #0b1220;
+      border-radius: 24px 24px 0 0;
+      margin-top: 16px;
+      padding: 24px 16px 32px;
+    }
+    .filters-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
       margin-bottom: 20px;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+    .search-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid #1e293b;
+      background: #020617;
+      color: #f9fafb;
+      font-size: 0.9rem;
     }
-    li {
-      margin-bottom: 8px;
+    .search-input::placeholder {
+      color: #64748b;
     }
-    a {
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #020617;
+      border-radius: 18px;
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(148,163,184,.3);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+    .pill {
+      border-radius: 999px;
+      padding: 4px 10px;
+    }
+    .pill-type {
+      background: rgba(56,189,248,.15);
+      color: #7dd3fc;
+    }
+    .pill-date {
+      background: rgba(148,163,184,.18);
+      color: #e5e7eb;
+    }
+    .card-title {
+      font-size: 1rem;
+      margin: 0;
+    }
+    .card-title a {
+      color: #e5e7eb;
       text-decoration: none;
-      color: #0b1b3b;
-      font-weight: bold;
     }
-    a:hover {
-      text-decoration: underline;
+    .card-title a:hover {
+      color: #ffe26a;
+    }
+    .card-summary {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin: 0;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      padding: 16px;
+    }
+    @media (min-width: 768px) {
+      .title {
+        font-size: 2.4rem;
+      }
+      header {
+        padding-top: 32px;
+      }
+      .content {
+        padding: 28px 24px 36px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Artigos de Moacir Lázaro Melo</h1>
-  <ul>
-<li><a href='artigos/a-solidao-virou-uma-epidemia-global.html'>A SOLIDÃO VIROU UMA EPIDEMIA GLOBAL
-E o mundo está criando até ministérios para combatê-la.</a></li>
-<li><a href='artigos/como-nossos-pais-de-geracoes-em-geracoes.html'>COMO NOSSOS PAIS – DE GERAÇÕES EM GERAÇÕES                                 By Moacir de Melo</a></li>
-  </ul>
+<div class="page">
+  <header>
+    <div class="header-inner">
+      <div>
+        <div class="tagline">ROTARY • ESCRITOR • EMPRESÁRIO</div>
+        <div class="title">
+          Artigos de <span class="highlight">Moacir Lázaro Melo</span>
+        </div>
+        <p class="subtitle">
+          Textos publicados em jornais e revistas, reunidos aqui para leitura completa.
+          Reflexões sobre o país, gerações, convivência humana, serviço ao próximo e o sentido de viver bem.
+        </p>
+        <div class="bio-box">
+          <div class="bio-photo">
+            <img src="assets/moacir-melo.jpg" alt="Foto de Moacir Lázaro Melo">
+          </div>
+          <div>
+            <div class="bio-text-main">Moacir Lázaro Melo</div>
+            <div class="bio-text-sub">
+              Escritor, empresário e rotariano com décadas dedicadas a servir comunidades e inspirar pessoas.
+            </div>
+            <div class="hero-badge">
+              “Melhorar vidas via Rotary Internacional.”
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="content">
+      <div class="filters-row">
+        <input class="search-input" type="search" placeholder="Pesquisar por título ou palavra-chave (busca visual – use o CTRL+F do navegador para pesquisa completa)...">
+      </div>
+
+      <section class="articles-grid">
+        
+        <article class="card">
+          <div class="card-top">
+            <span class="pill pill-type">Artigo</span>
+            <span class="pill pill-date">27/11/2025</span>
+          </div>
+          <h2 class="card-title">
+            <a href="artigos/A SOLIDÃO VIROU UMA EPIDEMIA GLOBAL.html">
+              A SOLIDÃO VIROU UMA EPIDEMIA GLOBAL
+E o mundo está criando até ministérios para combatê-la.
+            </a>
+          </h2>
+          <p class="card-summary">Slide 2 — O problema Você sabia que 1,3 bilhão de pessoas no planeta se sentem solitárias? Principalmente jovens. Slide 3 — Consequências A solidão não é só um sentimento. Ela está ligada a: Depressão Ansiedade Suicídio Mais de 800 mil pessoas tiram a própria vida todos os anos. Slide...</p>
+        </article>
+        
+
+        <article class="card">
+          <div class="card-top">
+            <span class="pill pill-type">Artigo</span>
+            <span class="pill pill-date">27/11/2025</span>
+          </div>
+          <h2 class="card-title">
+            <a href="artigos/COMO NOSSOS PAIS - DE GERAÇÕES EM GERAÇÕES.html">
+              COMO NOSSOS PAIS – DE GERAÇÕES EM GERAÇÕES                                 By Moacir de Melo
+            </a>
+          </h2>
+          <p class="card-summary">E, de repente, em momento inusitado, no rádio do carro em movimento, ouço e contemplo, mais um vez, a música escrita e musicada pelo compositor nacional Belchior nominada de “Como Nossos Pais.” Escrita na década de 1970, momento em que nossos país tinha uma geração inquieta, cheia de sonhos e...</p>
+        </article>
+        
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Moacir Lázaro Melo — Biblioteca de artigos. Desenvolvido para leitura tranquila e organizada.
+  </footer>
+</div>
 </body>
 </html>
