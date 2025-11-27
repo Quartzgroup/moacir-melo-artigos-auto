@@ -35,10 +35,8 @@ jobs:
           git add .
           git commit -m "Gerar artigos automaticamente" || echo "Nada para commitar"
 
-         - name: Push alterações
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
-
-
+      - name: Push alterações
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
